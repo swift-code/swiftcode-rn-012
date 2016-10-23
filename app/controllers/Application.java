@@ -33,6 +33,7 @@ public class Application extends Controller {
         if(loginForm.hasErrors()){
             return ok(loginForm.errorsAsJson());
         }
+
         ObjectNode userJson = objectMapper.createObjectNode();
 
         User user = User.find.where().eq("email", loginForm.data().get("email")).findUnique();
